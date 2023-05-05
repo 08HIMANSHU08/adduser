@@ -30,5 +30,6 @@ function onSubmit(e) {
     nameInput.value = '';
     mobileInput.value='';
     emailInput.value = '';
+    
   }
 }
