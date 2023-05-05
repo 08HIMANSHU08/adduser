@@ -24,12 +24,26 @@ function onSubmit(e) {
     li.appendChild(document.createTextNode(`${nameInput.value}: ${mobileInput.value} :${emailInput.value}`));
     let userinput_serialized=JSON.stringify(userinput);
     localStorage.setItem(emailInput.value,userinput_serialized)
-
+    
     userList.appendChild(li);
-
+    
+    var deleteBtn=document.createElement('button');
+    deleteBtn.className='delete';
+    deleteBtn.appendChild(document.createTextNode('Delete'));
+    li.appendChild(deleteBtn);
+    
+    userList.appendChild(li);
+    // var itemList=document.getElementById('users');
+    userList.addEventListener('click',removeItem);
+    function removeItem(e){
+      if(e.target.classList.contains('delete')){
+        var li=e.target.parentElement;
+        localStorage.removeItem(userinput.email);
+        userList.removeChild(li);
+      }
+    }
     nameInput.value = '';
     mobileInput.value='';
     emailInput.value = '';
-    
   }
 }
