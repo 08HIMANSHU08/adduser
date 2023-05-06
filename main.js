@@ -43,10 +43,24 @@ function showuser(obj){
   const deleteitem =document.createElement("input");
   deleteitem.type="button";
   deleteitem.value="delete";
+  
+  const edititem =document.createElement("input");
+  edititem.type="button";
+  edititem.value="edit";
+
   deleteitem.onclick=()=>{
     localStorage.removeItem(obj.email);
     parentitem.removeChild(childitem);
   }
+  edititem.onclick=()=>{
+    localStorage.removeItem(obj.email);
+    parentitem.removeChild(childitem);
+    document.getElementById("name").value=obj.name;
+    document.getElementById("email").value=obj.email;
+    document.getElementById("number").value=obj.mobile;
+    
+  }
   childitem.appendChild(deleteitem);
+  childitem.appendChild(edititem);
   parentitem.appendChild(childitem);
 }
